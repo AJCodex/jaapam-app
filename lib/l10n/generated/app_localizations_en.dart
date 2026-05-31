@@ -88,4 +88,268 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get signOut => 'Sign out';
+
+  @override
+  String get navHome => 'Home';
+
+  @override
+  String get navCommunity => 'Community';
+
+  @override
+  String get navAdd => 'Add';
+
+  @override
+  String get navHistory => 'History';
+
+  @override
+  String get navProfile => 'Profile';
+
+  @override
+  String get namaste => 'Namaste';
+
+  @override
+  String get today => 'Today';
+
+  @override
+  String get goal => 'Goal';
+
+  @override
+  String ofGoal(String goal) {
+    return 'of $goal goal';
+  }
+
+  @override
+  String get addCustomCount => 'Add custom count';
+
+  @override
+  String get lastSession => 'Last session';
+
+  @override
+  String get streak => 'Streak';
+
+  @override
+  String get noSessionsYet => 'No sessions yet';
+
+  @override
+  String get justNow => 'just now';
+
+  @override
+  String minutesAgo(int n) {
+    return '${n}m ago';
+  }
+
+  @override
+  String hoursAgo(int n) {
+    return '${n}h ago';
+  }
+
+  @override
+  String daysAgo(int n) {
+    return '${n}d ago';
+  }
+
+  @override
+  String get daysUnit => 'days';
+
+  @override
+  String get viewTarget => 'View monthly target';
+
+  @override
+  String get addEntry => 'Add entry';
+
+  @override
+  String get manualEntry => 'Manual entry';
+
+  @override
+  String get manualEntrySubtitle =>
+      'Add your devotional counts for sessions completed away from the app.';
+
+  @override
+  String get rounds => 'Rounds';
+
+  @override
+  String get roundsHint => '1 round = 108 jaaps';
+
+  @override
+  String get dateOfSadhana => 'Date of Sadhana';
+
+  @override
+  String get focus => 'Focus';
+
+  @override
+  String get mantraNavkar => 'Navkar Mantra';
+
+  @override
+  String get mantraLogassa => 'Logassa';
+
+  @override
+  String get mantraBhaktamar => 'Bhaktamar';
+
+  @override
+  String get mantraUvasaggaharam => 'Uvasaggaharam';
+
+  @override
+  String get mantraCustom => 'Custom';
+
+  @override
+  String get observationOptional => 'Observation (optional)';
+
+  @override
+  String get observationHint => 'e.g. Morning Sadhana in the temple';
+
+  @override
+  String get addToHistory => 'Add to history';
+
+  @override
+  String get entryAdded => 'Entry added.';
+
+  @override
+  String totalAddedHint(int n, int rounds) {
+    return 'Total: $n jaaps ($rounds rounds)';
+  }
+
+  @override
+  String get historyTitle => 'Meditation Journey';
+
+  @override
+  String get historySubtitle => 'Your devotional progress over time.';
+
+  @override
+  String get thisWeek => 'This Week';
+
+  @override
+  String get thisMonth => 'This Month';
+
+  @override
+  String get customRange => 'Custom Range';
+
+  @override
+  String get totalChantCount => 'Total chant count';
+
+  @override
+  String get dailyAvg => 'Daily avg';
+
+  @override
+  String get currentStreak => 'Current streak';
+
+  @override
+  String get recentEntries => 'Recent entries';
+
+  @override
+  String get noEntries => 'Your journey starts with the first jaap.';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get deleteEntry => 'Delete entry?';
+
+  @override
+  String deleteEntryBody(int n, String date) {
+    return 'This removes $n jaap from $date.';
+  }
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get profileTitle => 'Profile';
+
+  @override
+  String practitionerSince(String date) {
+    return 'Practitioner since $date';
+  }
+
+  @override
+  String get totalMalas => 'Total Malas';
+
+  @override
+  String get dailyStreak => 'Daily Streak';
+
+  @override
+  String get preferences => 'Preferences';
+
+  @override
+  String get notifications => 'Notifications';
+
+  @override
+  String get theme => 'Theme';
+
+  @override
+  String get themeSystem => 'System';
+
+  @override
+  String get appLanguage => 'App language';
+
+  @override
+  String get privacySecurity => 'Privacy & Security';
+
+  @override
+  String get privacyPolicy => 'Privacy policy';
+
+  @override
+  String get dailyGoalLabel => 'Daily goal';
+
+  @override
+  String get editDailyGoal => 'Edit daily goal';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get comingSoon => 'Coming soon';
+
+  @override
+  String get personalTarget => 'Personal Targets';
+
+  @override
+  String get monthlyTarget => 'Monthly target';
+
+  @override
+  String get editTarget => 'Edit target';
+
+  @override
+  String percentComplete(int p) {
+    return '$p% complete';
+  }
+
+  @override
+  String get weeklyDevotion => 'Weekly devotion';
+
+  @override
+  String get completedMilestones => 'Completed milestones';
+
+  @override
+  String get milestoneFirstMala => 'First 108 Jaaps';
+
+  @override
+  String get milestoneFirst1000 => 'First 1,000 Jaaps';
+
+  @override
+  String get milestone7DayStreak => '7-Day Streak';
+
+  @override
+  String get milestone10000 => '10,000 Jaaps';
+
+  @override
+  String get expandPractice => 'Expand your practice';
+
+  @override
+  String get expandPracticeBody => 'Guided sessions for deep focus.';
+
+  @override
+  String get setMonthlyTarget => 'Set monthly target';
+
+  @override
+  String get noTargetSet => 'No target set for this month.';
+
+  @override
+  String get communityTitle => 'Community Campaign';
+
+  @override
+  String get communityComingSoon => 'Community campaigns arrive in Phase 6.';
+
+  @override
+  String get communityComingSoonBody =>
+      'Soon you\'ll join a temple-wide goal with a live activity feed.';
 }

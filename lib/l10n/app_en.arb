@@ -5,13 +5,7 @@
     "description": "Application name shown in app bar and browser title"
   },
   "welcome": "Welcome",
-  "@welcome": {
-    "description": "Greeting shown on the home screen"
-  },
   "tagline": "Count every jaap. Share every blessing.",
-  "@tagline": {
-    "description": "Tagline shown on the welcome screen"
-  },
   "languageEnglish": "English",
   "languageHindi": "हिन्दी",
   "switchLanguage": "Switch language",
@@ -36,5 +30,124 @@
   "saveAndContinue": "Save and continue",
   "saving": "Saving…",
   "profileSaved": "Profile saved.",
-  "signOut": "Sign out"
+  "signOut": "Sign out",
+
+  "navHome": "Home",
+  "navCommunity": "Community",
+  "navAdd": "Add",
+  "navHistory": "History",
+  "navProfile": "Profile",
+
+  "namaste": "Namaste",
+  "today": "Today",
+  "goal": "Goal",
+  "ofGoal": "of {goal} goal",
+  "@ofGoal": {
+    "placeholders": { "goal": { "type": "String" } }
+  },
+  "addCustomCount": "Add custom count",
+  "lastSession": "Last session",
+  "streak": "Streak",
+  "noSessionsYet": "No sessions yet",
+  "justNow": "just now",
+  "minutesAgo": "{n}m ago",
+  "@minutesAgo": {
+    "placeholders": { "n": { "type": "int" } }
+  },
+  "hoursAgo": "{n}h ago",
+  "@hoursAgo": {
+    "placeholders": { "n": { "type": "int" } }
+  },
+  "daysAgo": "{n}d ago",
+  "@daysAgo": {
+    "placeholders": { "n": { "type": "int" } }
+  },
+  "daysUnit": "days",
+  "viewTarget": "View monthly target",
+
+  "addEntry": "Add entry",
+  "manualEntry": "Manual entry",
+  "manualEntrySubtitle": "Add your devotional counts for sessions completed away from the app.",
+  "rounds": "Rounds",
+  "roundsHint": "1 round = 108 jaaps",
+  "dateOfSadhana": "Date of Sadhana",
+  "focus": "Focus",
+  "mantraNavkar": "Navkar Mantra",
+  "mantraLogassa": "Logassa",
+  "mantraBhaktamar": "Bhaktamar",
+  "mantraUvasaggaharam": "Uvasaggaharam",
+  "mantraCustom": "Custom",
+  "observationOptional": "Observation (optional)",
+  "observationHint": "e.g. Morning Sadhana in the temple",
+  "addToHistory": "Add to history",
+  "entryAdded": "Entry added.",
+  "totalAddedHint": "Total: {n} jaaps ({rounds} rounds)",
+  "@totalAddedHint": {
+    "placeholders": {
+      "n": { "type": "int" },
+      "rounds": { "type": "int" }
+    }
+  },
+
+  "historyTitle": "Meditation Journey",
+  "historySubtitle": "Your devotional progress over time.",
+  "thisWeek": "This Week",
+  "thisMonth": "This Month",
+  "customRange": "Custom Range",
+  "totalChantCount": "Total chant count",
+  "dailyAvg": "Daily avg",
+  "currentStreak": "Current streak",
+  "recentEntries": "Recent entries",
+  "noEntries": "Your journey starts with the first jaap.",
+  "delete": "Delete",
+  "deleteEntry": "Delete entry?",
+  "deleteEntryBody": "This removes {n} jaap from {date}.",
+  "@deleteEntryBody": {
+    "placeholders": {
+      "n": { "type": "int" },
+      "date": { "type": "String" }
+    }
+  },
+  "cancel": "Cancel",
+
+  "profileTitle": "Profile",
+  "practitionerSince": "Practitioner since {date}",
+  "@practitionerSince": {
+    "placeholders": { "date": { "type": "String" } }
+  },
+  "totalMalas": "Total Malas",
+  "dailyStreak": "Daily Streak",
+  "preferences": "Preferences",
+  "notifications": "Notifications",
+  "theme": "Theme",
+  "themeSystem": "System",
+  "appLanguage": "App language",
+  "privacySecurity": "Privacy & Security",
+  "privacyPolicy": "Privacy policy",
+  "dailyGoalLabel": "Daily goal",
+  "editDailyGoal": "Edit daily goal",
+  "save": "Save",
+  "comingSoon": "Coming soon",
+
+  "personalTarget": "Personal Targets",
+  "monthlyTarget": "Monthly target",
+  "editTarget": "Edit target",
+  "percentComplete": "{p}% complete",
+  "@percentComplete": {
+    "placeholders": { "p": { "type": "int" } }
+  },
+  "weeklyDevotion": "Weekly devotion",
+  "completedMilestones": "Completed milestones",
+  "milestoneFirstMala": "First 108 Jaaps",
+  "milestoneFirst1000": "First 1,000 Jaaps",
+  "milestone7DayStreak": "7-Day Streak",
+  "milestone10000": "10,000 Jaaps",
+  "expandPractice": "Expand your practice",
+  "expandPracticeBody": "Guided sessions for deep focus.",
+  "setMonthlyTarget": "Set monthly target",
+  "noTargetSet": "No target set for this month.",
+
+  "communityTitle": "Community Campaign",
+  "communityComingSoon": "Community campaigns arrive in Phase 6.",
+  "communityComingSoonBody": "Soon you'll join a temple-wide goal with a live activity feed."
 }

@@ -1,103 +1,181 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-/// Devotional + minimalistic theme.
-/// Saffron primary, muted violet accent, warm sandalwood surfaces.
-/// Material 3, generous spacing, rounded corners, no gradients.
+/// Sadhana-inspired devotional theme: cream surface, warm orange primary,
+/// serif display headings, soft rounded cards.
 class AppTheme {
   AppTheme._();
 
-  // Brand tokens
-  static const Color saffron = Color(0xFFB45309); // warm amber-saffron
-  static const Color violet = Color(0xFF7C3AED);  // muted spiritual violet
-  static const Color sandalwood = Color(0xFFFAF7F2); // warm off-white surface
-  static const Color ink = Color(0xFF1C1917);     // warm near-black text
-  static const Color inkMuted = Color(0xFF78716C);
-  static const Color success = Color(0xFF15803D);
+  static const Color cream = Color(0xFFFAF6EF);
+  static const Color primary = Color(0xFFE68C3A);
+  static const Color accent = Color(0xFFC2410C);
+  static const Color ink = Color(0xFF1F1B16);
+  static const Color inkMuted = Color(0xFF7A6F60);
+  static const Color surfaceWhite = Color(0xFFFFFFFF);
+  static const Color softBorder = Color(0xFFEDE4D3);
+  static const Color amberSoft = Color(0xFFFEF3E2);
+  static const Color ringTrack = Color(0xFFF4E4CC);
 
-  static const double radius = 12;
+  static const double radiusCard = 20;
+  static const double radiusChip = 12;
+  static const double radiusButton = 14;
 
   static ThemeData light() {
-    final scheme = ColorScheme.fromSeed(
-      seedColor: saffron,
+    const scheme = ColorScheme(
       brightness: Brightness.light,
-      primary: saffron,
-      secondary: violet,
-      surface: sandalwood,
+      primary: primary,
+      onPrimary: Colors.white,
+      secondary: accent,
+      onSecondary: Colors.white,
+      tertiary: amberSoft,
+      onTertiary: ink,
+      error: Color(0xFFB91C1C),
+      onError: Colors.white,
+      surface: cream,
       onSurface: ink,
+      surfaceContainerHighest: surfaceWhite,
+      onSurfaceVariant: inkMuted,
+      outline: softBorder,
+      outlineVariant: softBorder,
     );
     return _base(scheme);
   }
 
   static ThemeData dark() {
-    final scheme = ColorScheme.fromSeed(
-      seedColor: saffron,
+    const scheme = ColorScheme(
       brightness: Brightness.dark,
-      primary: const Color(0xFFF59E0B),
-      secondary: const Color(0xFFA78BFA),
-      surface: const Color(0xFF1C1917),
-      onSurface: sandalwood,
+      primary: Color(0xFFF59E0B),
+      onPrimary: Colors.black,
+      secondary: Color(0xFFFB923C),
+      onSecondary: Colors.black,
+      tertiary: Color(0xFF2A1F14),
+      onTertiary: cream,
+      error: Color(0xFFEF4444),
+      onError: Colors.black,
+      surface: Color(0xFF1B1714),
+      onSurface: cream,
+      surfaceContainerHighest: Color(0xFF26211C),
+      onSurfaceVariant: Color(0xFFB8AC9C),
+      outline: Color(0xFF3A332C),
+      outlineVariant: Color(0xFF3A332C),
     );
     return _base(scheme);
   }
 
   static ThemeData _base(ColorScheme scheme) {
-    final textTheme = GoogleFonts.interTextTheme().apply(
+    final body = GoogleFonts.interTextTheme().apply(
       bodyColor: scheme.onSurface,
       displayColor: scheme.onSurface,
     );
-    final headingFont = GoogleFonts.tiroDevanagariHindi(
-      color: scheme.onSurface,
-      fontWeight: FontWeight.w600,
+    final heading = GoogleFonts.playfairDisplayTextTheme().apply(
+      bodyColor: scheme.onSurface,
+      displayColor: scheme.onSurface,
+    );
+    final textTheme = body.copyWith(
+      displayLarge: heading.displayLarge?.copyWith(fontWeight: FontWeight.w700),
+      displayMedium:
+          heading.displayMedium?.copyWith(fontWeight: FontWeight.w600),
+      displaySmall:
+          heading.displaySmall?.copyWith(fontWeight: FontWeight.w600),
+      headlineLarge:
+          heading.headlineLarge?.copyWith(fontWeight: FontWeight.w600),
+      headlineMedium:
+          heading.headlineMedium?.copyWith(fontWeight: FontWeight.w600),
+      headlineSmall:
+          heading.headlineSmall?.copyWith(fontWeight: FontWeight.w600),
+      titleLarge: heading.titleLarge?.copyWith(fontWeight: FontWeight.w600),
     );
     return ThemeData(
       useMaterial3: true,
       colorScheme: scheme,
       scaffoldBackgroundColor: scheme.surface,
       visualDensity: VisualDensity.adaptivePlatformDensity,
-      textTheme: textTheme.copyWith(
-        displayLarge: headingFont.copyWith(fontSize: 48),
-        displayMedium: headingFont.copyWith(fontSize: 36),
-        displaySmall: headingFont.copyWith(fontSize: 28),
-        headlineLarge: headingFont.copyWith(fontSize: 24),
-        headlineMedium: headingFont.copyWith(fontSize: 20),
-        headlineSmall: headingFont.copyWith(fontSize: 18),
-      ),
+      textTheme: textTheme,
       appBarTheme: AppBarTheme(
         backgroundColor: scheme.surface,
         foregroundColor: scheme.onSurface,
         elevation: 0,
         centerTitle: false,
-        titleTextStyle: headingFont.copyWith(fontSize: 20),
+        titleTextStyle: textTheme.titleLarge,
       ),
       cardTheme: CardThemeData(
-        color: scheme.surface,
+        color: scheme.surfaceContainerHighest,
         elevation: 0,
+        margin: EdgeInsets.zero,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(radius),
-          side: BorderSide(color: scheme.outlineVariant),
+          borderRadius: BorderRadius.circular(radiusCard),
+          side: BorderSide(color: scheme.outline),
         ),
       ),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
+          backgroundColor: scheme.primary,
+          foregroundColor: scheme.onPrimary,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(radius),
+            borderRadius: BorderRadius.circular(radiusButton),
           ),
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          textStyle: textTheme.titleMedium?.copyWith(
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
+          foregroundColor: scheme.primary,
+          side: BorderSide(color: scheme.primary),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(radius),
+            borderRadius: BorderRadius.circular(radiusButton),
           ),
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
         ),
       ),
-      inputDecorationTheme: InputDecorationTheme(
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(radius),
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(foregroundColor: scheme.primary),
+      ),
+      chipTheme: ChipThemeData(
+        backgroundColor: scheme.tertiary,
+        side: BorderSide.none,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(radiusChip),
         ),
+        labelStyle: textTheme.labelLarge?.copyWith(color: scheme.primary),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: scheme.surfaceContainerHighest,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(radiusButton),
+          borderSide: BorderSide(color: scheme.outline),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(radiusButton),
+          borderSide: BorderSide(color: scheme.outline),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(radiusButton),
+          borderSide: BorderSide(color: scheme.primary, width: 1.6),
+        ),
+      ),
+      navigationBarTheme: NavigationBarThemeData(
+        backgroundColor: scheme.surfaceContainerHighest,
+        elevation: 0,
+        indicatorColor: scheme.primary.withValues(alpha: 0.15),
+        labelTextStyle: WidgetStateProperty.all(
+          textTheme.labelSmall?.copyWith(fontWeight: FontWeight.w600),
+        ),
+        iconTheme: WidgetStateProperty.resolveWith(
+          (states) => IconThemeData(
+            color: states.contains(WidgetState.selected)
+                ? scheme.primary
+                : scheme.onSurfaceVariant,
+          ),
+        ),
+      ),
+      dividerTheme: DividerThemeData(
+        color: scheme.outline,
+        space: 1,
+        thickness: 1,
       ),
     );
   }

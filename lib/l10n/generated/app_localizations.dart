@@ -104,13 +104,13 @@ abstract class AppLocalizations {
   /// **'Jaapam'**
   String get appTitle;
 
-  /// Greeting shown on the home screen
+  /// No description provided for @welcome.
   ///
   /// In en, this message translates to:
   /// **'Welcome'**
   String get welcome;
 
-  /// Tagline shown on the welcome screen
+  /// No description provided for @tagline.
   ///
   /// In en, this message translates to:
   /// **'Count every jaap. Share every blessing.'**
@@ -253,6 +253,498 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sign out'**
   String get signOut;
+
+  /// No description provided for @navHome.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get navHome;
+
+  /// No description provided for @navCommunity.
+  ///
+  /// In en, this message translates to:
+  /// **'Community'**
+  String get navCommunity;
+
+  /// No description provided for @navAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get navAdd;
+
+  /// No description provided for @navHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get navHistory;
+
+  /// No description provided for @navProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get navProfile;
+
+  /// No description provided for @namaste.
+  ///
+  /// In en, this message translates to:
+  /// **'Namaste'**
+  String get namaste;
+
+  /// No description provided for @today.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get today;
+
+  /// No description provided for @goal.
+  ///
+  /// In en, this message translates to:
+  /// **'Goal'**
+  String get goal;
+
+  /// No description provided for @ofGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'of {goal} goal'**
+  String ofGoal(String goal);
+
+  /// No description provided for @addCustomCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Add custom count'**
+  String get addCustomCount;
+
+  /// No description provided for @lastSession.
+  ///
+  /// In en, this message translates to:
+  /// **'Last session'**
+  String get lastSession;
+
+  /// No description provided for @streak.
+  ///
+  /// In en, this message translates to:
+  /// **'Streak'**
+  String get streak;
+
+  /// No description provided for @noSessionsYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No sessions yet'**
+  String get noSessionsYet;
+
+  /// No description provided for @justNow.
+  ///
+  /// In en, this message translates to:
+  /// **'just now'**
+  String get justNow;
+
+  /// No description provided for @minutesAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{n}m ago'**
+  String minutesAgo(int n);
+
+  /// No description provided for @hoursAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{n}h ago'**
+  String hoursAgo(int n);
+
+  /// No description provided for @daysAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{n}d ago'**
+  String daysAgo(int n);
+
+  /// No description provided for @daysUnit.
+  ///
+  /// In en, this message translates to:
+  /// **'days'**
+  String get daysUnit;
+
+  /// No description provided for @viewTarget.
+  ///
+  /// In en, this message translates to:
+  /// **'View monthly target'**
+  String get viewTarget;
+
+  /// No description provided for @addEntry.
+  ///
+  /// In en, this message translates to:
+  /// **'Add entry'**
+  String get addEntry;
+
+  /// No description provided for @manualEntry.
+  ///
+  /// In en, this message translates to:
+  /// **'Manual entry'**
+  String get manualEntry;
+
+  /// No description provided for @manualEntrySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your devotional counts for sessions completed away from the app.'**
+  String get manualEntrySubtitle;
+
+  /// No description provided for @rounds.
+  ///
+  /// In en, this message translates to:
+  /// **'Rounds'**
+  String get rounds;
+
+  /// No description provided for @roundsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'1 round = 108 jaaps'**
+  String get roundsHint;
+
+  /// No description provided for @dateOfSadhana.
+  ///
+  /// In en, this message translates to:
+  /// **'Date of Sadhana'**
+  String get dateOfSadhana;
+
+  /// No description provided for @focus.
+  ///
+  /// In en, this message translates to:
+  /// **'Focus'**
+  String get focus;
+
+  /// No description provided for @mantraNavkar.
+  ///
+  /// In en, this message translates to:
+  /// **'Navkar Mantra'**
+  String get mantraNavkar;
+
+  /// No description provided for @mantraLogassa.
+  ///
+  /// In en, this message translates to:
+  /// **'Logassa'**
+  String get mantraLogassa;
+
+  /// No description provided for @mantraBhaktamar.
+  ///
+  /// In en, this message translates to:
+  /// **'Bhaktamar'**
+  String get mantraBhaktamar;
+
+  /// No description provided for @mantraUvasaggaharam.
+  ///
+  /// In en, this message translates to:
+  /// **'Uvasaggaharam'**
+  String get mantraUvasaggaharam;
+
+  /// No description provided for @mantraCustom.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom'**
+  String get mantraCustom;
+
+  /// No description provided for @observationOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Observation (optional)'**
+  String get observationOptional;
+
+  /// No description provided for @observationHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Morning Sadhana in the temple'**
+  String get observationHint;
+
+  /// No description provided for @addToHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to history'**
+  String get addToHistory;
+
+  /// No description provided for @entryAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Entry added.'**
+  String get entryAdded;
+
+  /// No description provided for @totalAddedHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Total: {n} jaaps ({rounds} rounds)'**
+  String totalAddedHint(int n, int rounds);
+
+  /// No description provided for @historyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Meditation Journey'**
+  String get historyTitle;
+
+  /// No description provided for @historySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your devotional progress over time.'**
+  String get historySubtitle;
+
+  /// No description provided for @thisWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'This Week'**
+  String get thisWeek;
+
+  /// No description provided for @thisMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'This Month'**
+  String get thisMonth;
+
+  /// No description provided for @customRange.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom Range'**
+  String get customRange;
+
+  /// No description provided for @totalChantCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Total chant count'**
+  String get totalChantCount;
+
+  /// No description provided for @dailyAvg.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily avg'**
+  String get dailyAvg;
+
+  /// No description provided for @currentStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'Current streak'**
+  String get currentStreak;
+
+  /// No description provided for @recentEntries.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent entries'**
+  String get recentEntries;
+
+  /// No description provided for @noEntries.
+  ///
+  /// In en, this message translates to:
+  /// **'Your journey starts with the first jaap.'**
+  String get noEntries;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @deleteEntry.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete entry?'**
+  String get deleteEntry;
+
+  /// No description provided for @deleteEntryBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This removes {n} jaap from {date}.'**
+  String deleteEntryBody(int n, String date);
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @profileTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profileTitle;
+
+  /// No description provided for @practitionerSince.
+  ///
+  /// In en, this message translates to:
+  /// **'Practitioner since {date}'**
+  String practitionerSince(String date);
+
+  /// No description provided for @totalMalas.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Malas'**
+  String get totalMalas;
+
+  /// No description provided for @dailyStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Streak'**
+  String get dailyStreak;
+
+  /// No description provided for @preferences.
+  ///
+  /// In en, this message translates to:
+  /// **'Preferences'**
+  String get preferences;
+
+  /// No description provided for @notifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notifications;
+
+  /// No description provided for @theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get theme;
+
+  /// No description provided for @themeSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get themeSystem;
+
+  /// No description provided for @appLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'App language'**
+  String get appLanguage;
+
+  /// No description provided for @privacySecurity.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy & Security'**
+  String get privacySecurity;
+
+  /// No description provided for @privacyPolicy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy policy'**
+  String get privacyPolicy;
+
+  /// No description provided for @dailyGoalLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily goal'**
+  String get dailyGoalLabel;
+
+  /// No description provided for @editDailyGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit daily goal'**
+  String get editDailyGoal;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @comingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming soon'**
+  String get comingSoon;
+
+  /// No description provided for @personalTarget.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal Targets'**
+  String get personalTarget;
+
+  /// No description provided for @monthlyTarget.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly target'**
+  String get monthlyTarget;
+
+  /// No description provided for @editTarget.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit target'**
+  String get editTarget;
+
+  /// No description provided for @percentComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'{p}% complete'**
+  String percentComplete(int p);
+
+  /// No description provided for @weeklyDevotion.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly devotion'**
+  String get weeklyDevotion;
+
+  /// No description provided for @completedMilestones.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed milestones'**
+  String get completedMilestones;
+
+  /// No description provided for @milestoneFirstMala.
+  ///
+  /// In en, this message translates to:
+  /// **'First 108 Jaaps'**
+  String get milestoneFirstMala;
+
+  /// No description provided for @milestoneFirst1000.
+  ///
+  /// In en, this message translates to:
+  /// **'First 1,000 Jaaps'**
+  String get milestoneFirst1000;
+
+  /// No description provided for @milestone7DayStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'7-Day Streak'**
+  String get milestone7DayStreak;
+
+  /// No description provided for @milestone10000.
+  ///
+  /// In en, this message translates to:
+  /// **'10,000 Jaaps'**
+  String get milestone10000;
+
+  /// No description provided for @expandPractice.
+  ///
+  /// In en, this message translates to:
+  /// **'Expand your practice'**
+  String get expandPractice;
+
+  /// No description provided for @expandPracticeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Guided sessions for deep focus.'**
+  String get expandPracticeBody;
+
+  /// No description provided for @setMonthlyTarget.
+  ///
+  /// In en, this message translates to:
+  /// **'Set monthly target'**
+  String get setMonthlyTarget;
+
+  /// No description provided for @noTargetSet.
+  ///
+  /// In en, this message translates to:
+  /// **'No target set for this month.'**
+  String get noTargetSet;
+
+  /// No description provided for @communityTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Community Campaign'**
+  String get communityTitle;
+
+  /// No description provided for @communityComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Community campaigns arrive in Phase 6.'**
+  String get communityComingSoon;
+
+  /// No description provided for @communityComingSoonBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Soon you\'ll join a temple-wide goal with a live activity feed.'**
+  String get communityComingSoonBody;
 }
 
 class _AppLocalizationsDelegate

@@ -5,21 +5,19 @@ import 'package:go_router/go_router.dart';
 
 import '../core/auth/auth_providers.dart';
 import '../features/auth/sign_in_page.dart';
-import '../features/home/home_page.dart';
 import '../features/onboarding/profile_setup_page.dart';
+import '../features/shell/root_shell.dart';
+import '../features/target/personal_target_page.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../theme/app_theme.dart';
 import 'locale_controller.dart';
 
 final _routerProvider = Provider<GoRouter>((ref) {
-  // Re-build the router config when auth or profile state changes so
-  // redirect() re-evaluates and pushes the user to the right page.
   return GoRouter(
     initialLocation: '/',
     refreshListenable: _RouterRefresh(ref),
     redirect: (context, state) {
       final auth = ref.read(authStateProvider);
-      // While auth is loading, don't redirect.
       if (auth.isLoading) return null;
       final user = auth.valueOrNull;
       final loc = state.matchedLocation;
@@ -31,7 +29,6 @@ final _routerProvider = Provider<GoRouter>((ref) {
       }
 
       final profileAsync = ref.read(userProfileProvider);
-      // Wait for the first snapshot before deciding onboarding.
       if (profileAsync.isLoading) return null;
       final profile = profileAsync.valueOrNull;
       final needsOnboarding = profile == null || !profile.isComplete;
@@ -40,12 +37,12 @@ final _routerProvider = Provider<GoRouter>((ref) {
         return atOnboarding ? null : '/onboarding';
       }
 
-      // Signed in + onboarded: bounce away from auth/onboarding pages.
       if (atSignIn || atOnboarding) return '/';
       return null;
     },
     routes: [
-      GoRoute(path: '/', builder: (_, _) => const HomePage()),
+      GoRoute(path: '/', builder: (_, _) => const RootShell()),
+      GoRoute(path: '/target', builder: (_, _) => const PersonalTargetPage()),
       GoRoute(path: '/sign-in', builder: (_, _) => const SignInPage()),
       GoRoute(
         path: '/onboarding',

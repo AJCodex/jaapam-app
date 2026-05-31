@@ -7,6 +7,7 @@ class UserProfile {
     required this.temple,
     required this.locale,
     required this.createdAt,
+    this.dailyGoal = 1000,
   });
 
   final String uid;
@@ -15,6 +16,7 @@ class UserProfile {
   final String temple;
   final String locale;
   final DateTime createdAt;
+  final int dailyGoal;
 
   factory UserProfile.fromMap(String uid, Map<String, dynamic> data) {
     return UserProfile(
@@ -24,6 +26,7 @@ class UserProfile {
       temple: (data['temple'] as String?) ?? '',
       locale: (data['locale'] as String?) ?? 'en',
       createdAt: _parseDate(data['createdAt']),
+      dailyGoal: (data['dailyGoal'] as num?)?.toInt() ?? 1000,
     );
   }
 
@@ -33,7 +36,25 @@ class UserProfile {
         'temple': temple,
         'locale': locale,
         'createdAt': createdAt.toUtc().toIso8601String(),
+        'dailyGoal': dailyGoal,
       };
+
+  UserProfile copyWith({
+    String? displayName,
+    String? gotra,
+    String? temple,
+    String? locale,
+    int? dailyGoal,
+  }) =>
+      UserProfile(
+        uid: uid,
+        displayName: displayName ?? this.displayName,
+        gotra: gotra ?? this.gotra,
+        temple: temple ?? this.temple,
+        locale: locale ?? this.locale,
+        createdAt: createdAt,
+        dailyGoal: dailyGoal ?? this.dailyGoal,
+      );
 
   bool get isComplete =>
       displayName.trim().isNotEmpty &&
