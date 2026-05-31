@@ -133,6 +133,126 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Switch language'**
   String get switchLanguage;
+
+  /// No description provided for @signIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get signIn;
+
+  /// No description provided for @signInSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to count your jaaps and share blessings with your community.'**
+  String get signInSubtitle;
+
+  /// No description provided for @signInWithGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Google'**
+  String get signInWithGoogle;
+
+  /// No description provided for @or.
+  ///
+  /// In en, this message translates to:
+  /// **'OR'**
+  String get or;
+
+  /// No description provided for @emailLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Email address'**
+  String get emailLabel;
+
+  /// No description provided for @sendMagicLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Email me a sign-in link'**
+  String get sendMagicLink;
+
+  /// No description provided for @emailLinkSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign-in link sent. Check your email and click the link to continue.'**
+  String get emailLinkSent;
+
+  /// No description provided for @invalidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email address.'**
+  String get invalidEmail;
+
+  /// No description provided for @completeProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete your profile'**
+  String get completeProfile;
+
+  /// No description provided for @profileIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell us a little about yourself so your community can recognize you.'**
+  String get profileIntro;
+
+  /// No description provided for @fullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Full name'**
+  String get fullName;
+
+  /// No description provided for @gotra.
+  ///
+  /// In en, this message translates to:
+  /// **'Gotra'**
+  String get gotra;
+
+  /// No description provided for @gotraHelper.
+  ///
+  /// In en, this message translates to:
+  /// **'Your family lineage (e.g. Kashyap, Bharadwaj).'**
+  String get gotraHelper;
+
+  /// No description provided for @temple.
+  ///
+  /// In en, this message translates to:
+  /// **'Temple'**
+  String get temple;
+
+  /// No description provided for @templeGyanodaya.
+  ///
+  /// In en, this message translates to:
+  /// **'Shri Gyanodaya Jain Mandir'**
+  String get templeGyanodaya;
+
+  /// No description provided for @fieldRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'This field is required.'**
+  String get fieldRequired;
+
+  /// No description provided for @saveAndContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Save and continue'**
+  String get saveAndContinue;
+
+  /// No description provided for @saving.
+  ///
+  /// In en, this message translates to:
+  /// **'Saving…'**
+  String get saving;
+
+  /// No description provided for @profileSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile saved.'**
+  String get profileSaved;
+
+  /// No description provided for @signOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out'**
+  String get signOut;
 }
 
 class _AppLocalizationsDelegate

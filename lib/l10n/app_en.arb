@@ -14,5 +14,27 @@
   },
   "languageEnglish": "English",
   "languageHindi": "हिन्दी",
-  "switchLanguage": "Switch language"
+  "switchLanguage": "Switch language",
+
+  "signIn": "Sign in",
+  "signInSubtitle": "Sign in to count your jaaps and share blessings with your community.",
+  "signInWithGoogle": "Continue with Google",
+  "or": "OR",
+  "emailLabel": "Email address",
+  "sendMagicLink": "Email me a sign-in link",
+  "emailLinkSent": "Sign-in link sent. Check your email and click the link to continue.",
+  "invalidEmail": "Please enter a valid email address.",
+
+  "completeProfile": "Complete your profile",
+  "profileIntro": "Tell us a little about yourself so your community can recognize you.",
+  "fullName": "Full name",
+  "gotra": "Gotra",
+  "gotraHelper": "Your family lineage (e.g. Kashyap, Bharadwaj).",
+  "temple": "Temple",
+  "templeGyanodaya": "Shri Gyanodaya Jain Mandir",
+  "fieldRequired": "This field is required.",
+  "saveAndContinue": "Save and continue",
+  "saving": "Saving…",
+  "profileSaved": "Profile saved.",
+  "signOut": "Sign out"
 }

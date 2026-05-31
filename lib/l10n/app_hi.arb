@@ -5,5 +5,27 @@
   "tagline": "हर जाप गिनें। हर आशीर्वाद बाँटें।",
   "languageEnglish": "English",
   "languageHindi": "हिन्दी",
-  "switchLanguage": "भाषा बदलें"
+  "switchLanguage": "भाषा बदलें",
+
+  "signIn": "साइन इन करें",
+  "signInSubtitle": "अपने जाप गिनने और अपने समुदाय के साथ आशीर्वाद साझा करने के लिए साइन इन करें।",
+  "signInWithGoogle": "Google के साथ जारी रखें",
+  "or": "अथवा",
+  "emailLabel": "ईमेल पता",
+  "sendMagicLink": "मुझे साइन-इन लिंक भेजें",
+  "emailLinkSent": "साइन-इन लिंक भेज दिया गया है। अपना ईमेल देखें और जारी रखने के लिए लिंक पर क्लिक करें।",
+  "invalidEmail": "कृपया एक मान्य ईमेल पता दर्ज करें।",
+
+  "completeProfile": "अपनी प्रोफ़ाइल पूर्ण करें",
+  "profileIntro": "अपने बारे में थोड़ा बताएँ ताकि आपका समुदाय आपको पहचान सके।",
+  "fullName": "पूरा नाम",
+  "gotra": "गोत्र",
+  "gotraHelper": "आपका पारिवारिक वंश (जैसे कश्यप, भारद्वाज)।",
+  "temple": "मंदिर",
+  "templeGyanodaya": "श्री ज्ञानोदय जैन मंदिर",
+  "fieldRequired": "यह जानकारी आवश्यक है।",
+  "saveAndContinue": "सहेजें और जारी रखें",
+  "saving": "सहेजा जा रहा है…",
+  "profileSaved": "प्रोफ़ाइल सहेज ली गई।",
+  "signOut": "साइन आउट"
 }

@@ -2,8 +2,13 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Phase 0 baseline: default deny.
-    // Per-collection rules land in Phase 2 (jaap counters, profiles, posts).
+    // Users may read & write only their own profile document.
+    // Per-collection rules for jaap counters, posts etc. land in later phases.
+    match /users/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+
+    // Default deny for everything else.
     match /{document=**} {
       allow read, write: if false;
     }

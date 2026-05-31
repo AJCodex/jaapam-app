@@ -3,20 +3,65 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../core/auth/auth_providers.dart';
+import '../features/auth/sign_in_page.dart';
 import '../features/home/home_page.dart';
+import '../features/onboarding/profile_setup_page.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../theme/app_theme.dart';
 import 'locale_controller.dart';
 
-final _router = GoRouter(
-  initialLocation: '/',
-  routes: [
-    GoRoute(
-      path: '/',
-      builder: (context, state) => const HomePage(),
-    ),
-  ],
-);
+final _routerProvider = Provider<GoRouter>((ref) {
+  // Re-build the router config when auth or profile state changes so
+  // redirect() re-evaluates and pushes the user to the right page.
+  return GoRouter(
+    initialLocation: '/',
+    refreshListenable: _RouterRefresh(ref),
+    redirect: (context, state) {
+      final auth = ref.read(authStateProvider);
+      // While auth is loading, don't redirect.
+      if (auth.isLoading) return null;
+      final user = auth.valueOrNull;
+      final loc = state.matchedLocation;
+      final atSignIn = loc == '/sign-in';
+      final atOnboarding = loc == '/onboarding';
+
+      if (user == null) {
+        return atSignIn ? null : '/sign-in';
+      }
+
+      final profileAsync = ref.read(userProfileProvider);
+      // Wait for the first snapshot before deciding onboarding.
+      if (profileAsync.isLoading) return null;
+      final profile = profileAsync.valueOrNull;
+      final needsOnboarding = profile == null || !profile.isComplete;
+
+      if (needsOnboarding) {
+        return atOnboarding ? null : '/onboarding';
+      }
+
+      // Signed in + onboarded: bounce away from auth/onboarding pages.
+      if (atSignIn || atOnboarding) return '/';
+      return null;
+    },
+    routes: [
+      GoRoute(path: '/', builder: (_, _) => const HomePage()),
+      GoRoute(path: '/sign-in', builder: (_, _) => const SignInPage()),
+      GoRoute(
+        path: '/onboarding',
+        builder: (_, _) => const ProfileSetupPage(),
+      ),
+    ],
+  );
+});
+
+/// Bridges Riverpod auth/profile streams to GoRouter's refreshListenable.
+class _RouterRefresh extends ChangeNotifier {
+  _RouterRefresh(Ref ref) {
+    ref.listen(authStateProvider, (_, _) => notifyListeners());
+    ref.listen(userProfileProvider, (_, _) => notifyListeners());
+  }
+}
 
 class JaapamApp extends ConsumerWidget {
   const JaapamApp({super.key});
@@ -24,6 +69,7 @@ class JaapamApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final locale = ref.watch(localeProvider);
+    final router = ref.watch(_routerProvider);
     return MaterialApp.router(
       onGenerateTitle: (ctx) => AppLocalizations.of(ctx).appTitle,
       debugShowCheckedModeBanner: false,
@@ -38,7 +84,7 @@ class JaapamApp extends ConsumerWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      routerConfig: _router,
+      routerConfig: router,
     );
   }
 }
