@@ -1,0 +1,18 @@
+{
+  "@@locale": "en",
+  "appTitle": "Jaapam",
+  "@appTitle": {
+    "description": "Application name shown in app bar and browser title"
+  },
+  "welcome": "Welcome",
+  "@welcome": {
+    "description": "Greeting shown on the home screen"
+  },
+  "tagline": "Count every jaap. Share every blessing.",
+  "@tagline": {
+    "description": "Tagline shown on the welcome screen"
+  },
+  "languageEnglish": "English",
+  "languageHindi": "हिन्दी",
+  "switchLanguage": "Switch language"
+}

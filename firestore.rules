@@ -1,0 +1,11 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Phase 0 baseline: default deny.
+    // Per-collection rules land in Phase 2 (jaap counters, profiles, posts).
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
