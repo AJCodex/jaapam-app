@@ -8,7 +8,6 @@ import '../../core/campaigns/campaign_providers.dart';
 import '../../core/format.dart';
 import '../../core/jaap/jaap_providers.dart';
 import '../../l10n/generated/app_localizations.dart';
-import '../add/add_entry_sheet.dart';
 import '../shared/confirm_add.dart';
 import 'widgets/jaap_ring.dart';
 
@@ -149,16 +148,9 @@ class _PersonalCounter extends ConsumerWidget {
           ],
         ),
         const SizedBox(height: 20),
-        FilledButton.icon(
-          onPressed: () => showAddEntrySheet(context),
-          icon: const Icon(Icons.add_circle_outline),
-          label: Text(l.addCustomCount),
-        ),
-        const SizedBox(height: 20),
         Row(
           children: [
-            Expanded(
-              child: _StatCard(
+            Expanded(              child: _StatCard(
                 icon: Icons.access_time,
                 label: l.lastSession,
                 value: last == null

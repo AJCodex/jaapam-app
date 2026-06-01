@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../l10n/generated/app_localizations.dart';
-import '../add/add_entry_sheet.dart';
 import '../community/community_tab.dart';
 import '../history/history_tab.dart';
 import '../home/home_tab.dart';
 import '../profile/profile_tab.dart';
 
-/// Bottom-nav scaffold hosting Home, Community, Add (modal), History, Profile.
+/// Bottom-nav scaffold hosting Home, Community, History, Profile.
 class RootShell extends ConsumerStatefulWidget {
   const RootShell({super.key});
   @override
@@ -21,7 +20,6 @@ class _RootShellState extends ConsumerState<RootShell> {
   static const _pages = <Widget>[
     HomeTab(),
     CommunityTab(),
-    SizedBox.shrink(), // Add tab: handled via modal, never selected
     HistoryTab(),
     ProfileTab(),
   ];
@@ -29,7 +27,6 @@ class _RootShellState extends ConsumerState<RootShell> {
   @override
   Widget build(BuildContext context) {
     final l = AppLocalizations.of(context);
-    final scheme = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
         title: Text(l.appTitle),
@@ -48,13 +45,7 @@ class _RootShellState extends ConsumerState<RootShell> {
       ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _index,
-        onDestinationSelected: (i) {
-          if (i == 2) {
-            showAddEntrySheet(context);
-            return;
-          }
-          setState(() => _index = i);
-        },
+        onDestinationSelected: (i) => setState(() => _index = i),
         destinations: [
           NavigationDestination(
             icon: const Icon(Icons.home_outlined),
@@ -65,19 +56,6 @@ class _RootShellState extends ConsumerState<RootShell> {
             icon: const Icon(Icons.groups_outlined),
             selectedIcon: const Icon(Icons.groups),
             label: l.navCommunity,
-          ),
-          NavigationDestination(
-            icon: Container(
-              width: 36,
-              height: 36,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: scheme.primary,
-                shape: BoxShape.circle,
-              ),
-              child: Icon(Icons.add, color: scheme.onPrimary, size: 22),
-            ),
-            label: l.navAdd,
           ),
           NavigationDestination(
             icon: const Icon(Icons.history),
