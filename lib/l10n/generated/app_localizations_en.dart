@@ -316,10 +316,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get privacyPolicy => 'Privacy Policy';
 
   @override
-  String get dailyGoalLabel => 'Daily goal';
+  String get dailyGoalLabel => 'Daily Jaap Target';
 
   @override
-  String get editDailyGoal => 'Edit daily goal';
+  String get editDailyGoal => 'Edit daily jaap target';
 
   @override
   String get save => 'Save';

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../core/auth/auth_providers.dart';
 import '../../core/campaigns/campaign_providers.dart';
 import '../../core/jaap/jaap_providers.dart';
 import '../../core/jaap/mantras.dart';
@@ -52,16 +51,13 @@ Future<bool> confirmAndAddJaap(
   if (contributeToCampaign) {
     final campaign = ref.read(activeCampaignProvider).valueOrNull;
     if (campaign != null) {
-      final profile = ref.read(userProfileProvider).valueOrNull;
-      final user = ref.read(currentUserProvider);
-      final name = profile?.displayName.isNotEmpty == true
-          ? profile!.displayName
-          : (user?.email ?? 'Anonymous');
       final snackText = l.contributedToCampaign;
-      await ref
-          .read(campaignServiceProvider)
-          .contribute(count: count, displayName: name);
-      messenger.showSnackBar(SnackBar(content: Text(snackText)));
+      try {
+        await ref.read(campaignServiceProvider).contribute(count: count);
+        messenger.showSnackBar(SnackBar(content: Text(snackText)));
+      } catch (e) {
+        messenger.showSnackBar(SnackBar(content: Text(e.toString())));
+      }
     }
   }
   return true;

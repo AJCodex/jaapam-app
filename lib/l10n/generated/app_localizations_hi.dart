@@ -316,10 +316,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get privacyPolicy => 'गोपनीयता नीति';
 
   @override
-  String get dailyGoalLabel => 'दैनिक लक्ष्य';
+  String get dailyGoalLabel => 'दैनिक जाप लक्ष्य';
 
   @override
-  String get editDailyGoal => 'दैनिक लक्ष्य संपादित करें';
+  String get editDailyGoal => 'दैनिक जाप लक्ष्य संपादित करें';
 
   @override
   String get save => 'सहेजें';

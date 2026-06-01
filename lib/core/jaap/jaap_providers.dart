@@ -177,6 +177,9 @@ class JaapService {
   }
 
   Future<void> setDailyGoal(int goal) async {
+    if (goal < 1 || goal > 10000000) {
+      throw ArgumentError('Daily target must be between 1 and 10,000,000');
+    }
     await _db
         .collection('users')
         .doc(_user.uid as String)
@@ -184,6 +187,9 @@ class JaapService {
   }
 
   Future<void> setMonthlyTarget(int target, {DateTime? month}) async {
+    if (target < 1 || target > 10000000) {
+      throw ArgumentError('Target must be between 1 and 10,000,000');
+    }
     final key = monthKey(month ?? DateTime.now());
     await _db
         .collection('users')

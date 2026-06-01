@@ -3,69 +3,172 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Helper: true when the authed user's profile has isAdmin == true.
-    // `isAdmin` is set manually in the Firestore console; client writes
-    // to it are blocked by the users/{uid} rule below.
+    // --- Helpers ---------------------------------------------------------
+
+    function isSignedIn() { return request.auth != null; }
+
     function isAdmin() {
-      return request.auth != null
+      return isSignedIn()
         && exists(/databases/$(database)/documents/users/$(request.auth.uid))
         && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true;
     }
 
-    // Users may read & write only their own profile document and
-    // any per-user subcollections (sessions, personal_goals, milestones).
-    // Writes must NOT change the isAdmin flag (admin promotion is console-only).
+    // Display name on contribution/activity docs MUST match the user's
+    // own profile displayName (blocks "Admin Joshi" impersonation).
+    function profileNameMatches(uid, name) {
+      return name is string
+        && name.size() <= 80
+        && exists(/databases/$(database)/documents/users/$(uid))
+        && get(/databases/$(database)/documents/users/$(uid)).data.displayName == name;
+    }
+
+    function isValidJaapCount(c) {
+      return c is int && c > 0 && c <= 100000;
+    }
+
+    function isValidGoal(g) {
+      return g is int && g >= 1 && g <= 10000000;
+    }
+
+    // --- Users -----------------------------------------------------------
+    // Profile fields allow-listed; client cannot set isAdmin.
     match /users/{uid} {
-      allow read: if request.auth != null && request.auth.uid == uid;
-      allow create: if request.auth != null
+      allow read: if isSignedIn() && request.auth.uid == uid;
+
+      allow create: if isSignedIn()
         && request.auth.uid == uid
-        && !('isAdmin' in request.resource.data);
-      allow update: if request.auth != null
+        && !('isAdmin' in request.resource.data)
+        && request.resource.data.keys().hasOnly(
+            ['displayName','gotra','temple','locale','createdAt','dailyGoal'])
+        && request.resource.data.displayName is string
+        && request.resource.data.displayName.size() > 0
+        && request.resource.data.displayName.size() <= 80
+        && request.resource.data.temple is string
+        && request.resource.data.temple.size() > 0
+        && request.resource.data.temple.size() <= 80
+        && request.resource.data.locale is string
+        && request.resource.data.locale.size() <= 8
+        && (!('gotra' in request.resource.data) ||
+            (request.resource.data.gotra is string
+             && request.resource.data.gotra.size() <= 80))
+        && (!('dailyGoal' in request.resource.data) ||
+            isValidGoal(request.resource.data.dailyGoal));
+
+      allow update: if isSignedIn()
         && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(
+            ['displayName','gotra','temple','locale','createdAt','dailyGoal','isAdmin'])
         && (
           !('isAdmin' in request.resource.data)
           || request.resource.data.isAdmin == resource.data.isAdmin
-        );
+        )
+        && (!('displayName' in request.resource.data) ||
+            (request.resource.data.displayName is string
+             && request.resource.data.displayName.size() > 0
+             && request.resource.data.displayName.size() <= 80))
+        && (!('temple' in request.resource.data) ||
+            (request.resource.data.temple is string
+             && request.resource.data.temple.size() <= 80))
+        && (!('locale' in request.resource.data) ||
+            (request.resource.data.locale is string
+             && request.resource.data.locale.size() <= 8))
+        && (!('gotra' in request.resource.data) ||
+            (request.resource.data.gotra is string
+             && request.resource.data.gotra.size() <= 80))
+        && (!('dailyGoal' in request.resource.data) ||
+            isValidGoal(request.resource.data.dailyGoal));
+
       allow delete: if false;
 
       match /sessions/{sessionId} {
-        allow read, write: if request.auth != null && request.auth.uid == uid;
+        allow read: if isSignedIn() && request.auth.uid == uid;
+        allow create: if isSignedIn()
+          && request.auth.uid == uid
+          && isValidJaapCount(request.resource.data.count)
+          && request.resource.data.mantra is string
+          && request.resource.data.mantra.size() <= 40
+          && request.resource.data.sessionDate is string
+          && request.resource.data.sessionDate.size() == 10
+          && request.resource.data.source is string
+          && request.resource.data.source.size() <= 20
+          && (!('observation' in request.resource.data) ||
+              (request.resource.data.observation is string
+               && request.resource.data.observation.size() <= 500));
+        allow update: if false; // sessions are append-only
+        allow delete: if isSignedIn() && request.auth.uid == uid;
       }
 
       match /personal_goals/{monthKey} {
-        allow read, write: if request.auth != null && request.auth.uid == uid;
+        allow read: if isSignedIn() && request.auth.uid == uid;
+        allow write: if isSignedIn()
+          && request.auth.uid == uid
+          && request.resource.data.keys().hasOnly(['target'])
+          && isValidGoal(request.resource.data.target);
       }
 
       match /milestones/{milestoneId} {
-        allow read, write: if request.auth != null && request.auth.uid == uid;
+        allow read, write: if isSignedIn() && request.auth.uid == uid;
       }
     }
 
-    // Community campaigns (Phase 6, light architecture, no Cloud Functions).
-    // - Campaign doc: any signed-in user may read; only an admin may create
-    //   or update (e.g. close) a campaign.
-    // - Contributions: signed-in users may read all; each user may only write
-    //   their own contribution doc (uid-matched).
-    // - Activity feed: signed-in users may read; each user may only create
-    //   events with their own uid (no edit / delete).
+    // --- Campaigns -------------------------------------------------------
     match /campaigns/{cid} {
-      allow read: if request.auth != null;
-      allow create, update: if isAdmin();
+      allow read: if isSignedIn();
+
+      allow create: if isAdmin()
+        && request.resource.data.title is string
+        && request.resource.data.title.size() > 0
+        && request.resource.data.title.size() <= 120
+        && request.resource.data.subtitle is string
+        && request.resource.data.subtitle.size() <= 240
+        && request.resource.data.goal is int
+        && request.resource.data.goal > 0
+        && request.resource.data.goal <= 1000000000
+        && request.resource.data.isActive is bool
+        && request.resource.data.createdBy == request.auth.uid;
+
+      allow update: if isAdmin()
+        && (!('createdBy' in request.resource.data)
+            || request.resource.data.createdBy == resource.data.createdBy);
+
       allow delete: if false;
 
+      // Per-user contribution doc (uid-named).
+      // - On create: count must be in valid range and displayName MUST equal
+      //   the user's profile displayName (impersonation guard).
+      // - On update: count must only grow, by at most 100000 per write.
       match /contributions/{uid} {
-        allow read: if request.auth != null;
-        allow write: if request.auth != null && request.auth.uid == uid;
+        allow read: if isSignedIn();
+
+        allow create: if isSignedIn()
+          && request.auth.uid == uid
+          && isValidJaapCount(request.resource.data.count)
+          && profileNameMatches(uid, request.resource.data.displayName);
+
+        allow update: if isSignedIn()
+          && request.auth.uid == uid
+          && request.resource.data.count is int
+          && request.resource.data.count >= resource.data.count
+          && (request.resource.data.count - resource.data.count) <= 100000
+          && profileNameMatches(uid, request.resource.data.displayName);
+
+        allow delete: if false;
       }
 
+      // Activity feed: append-only, server-validated count + displayName.
       match /activity/{eventId} {
-        allow read: if request.auth != null;
-        allow create: if request.auth != null
-          && request.resource.data.uid == request.auth.uid;
+        allow read: if isSignedIn();
+
+        allow create: if isSignedIn()
+          && request.resource.data.uid == request.auth.uid
+          && isValidJaapCount(request.resource.data.count)
+          && profileNameMatches(request.auth.uid, request.resource.data.displayName);
+
+        allow update, delete: if false;
       }
     }
 
-    // Default deny for everything else.
+    // --- Default deny ----------------------------------------------------
     match /{document=**} {
       allow read, write: if false;
     }

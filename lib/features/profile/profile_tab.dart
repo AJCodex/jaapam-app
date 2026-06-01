@@ -92,7 +92,7 @@ class ProfileTab extends ConsumerWidget {
                 leading: const Icon(Icons.flag_outlined),
                 title: Text(l.dailyGoalLabel),
                 trailing: Text(
-                  formatNumber(profile?.dailyGoal ?? 1000, localeCode),
+                  formatNumber(profile?.dailyGoal ?? 1, localeCode),
                   style: theme.textTheme.bodyLarge?.copyWith(
                     color: theme.colorScheme.primary,
                     fontWeight: FontWeight.w600,
@@ -209,7 +209,14 @@ class ProfileTab extends ConsumerWidget {
       ),
     );
     if (result != null) {
-      await ref.read(jaapServiceProvider).setDailyGoal(result);
+      try {
+        await ref.read(jaapServiceProvider).setDailyGoal(result);
+      } catch (e) {
+        if (!context.mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.toString())),
+        );
+      }
     }
   }
 }

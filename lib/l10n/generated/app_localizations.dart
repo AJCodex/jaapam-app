@@ -671,13 +671,13 @@ abstract class AppLocalizations {
   /// No description provided for @dailyGoalLabel.
   ///
   /// In en, this message translates to:
-  /// **'Daily goal'**
+  /// **'Daily Jaap Target'**
   String get dailyGoalLabel;
 
   /// No description provided for @editDailyGoal.
   ///
   /// In en, this message translates to:
-  /// **'Edit daily goal'**
+  /// **'Edit daily jaap target'**
   String get editDailyGoal;
 
   /// No description provided for @save.

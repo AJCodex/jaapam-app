@@ -132,12 +132,22 @@ class CampaignService {
 
   /// Adds [count] to the current user's contribution and appends an activity
   /// event. Caller should also write a personal session (via JaapService).
-  Future<void> contribute({
-    required int count,
-    required String displayName,
-  }) async {
+  ///
+  /// Note: displayName is intentionally NOT a parameter. It is read from the
+  /// authenticated user's profile (`users/{uid}.displayName`) so a malicious
+  /// client cannot spoof another devotee's name. Server rules also enforce
+  /// that the written displayName matches the profile.
+  Future<void> contribute({required int count}) async {
     if (_user == null) throw StateError('Not signed in');
+    if (count <= 0 || count > 100000) {
+      throw ArgumentError('count out of range');
+    }
     final uid = _user.uid as String;
+    final profileSnap = await _db.collection('users').doc(uid).get();
+    final displayName = (profileSnap.data()?['displayName'] as String?) ?? '';
+    if (displayName.isEmpty) {
+      throw StateError('Complete your profile before contributing');
+    }
     final batch = _db.batch();
     batch.set(
       _campaignRef.collection('contributions').doc(uid),

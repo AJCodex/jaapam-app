@@ -98,7 +98,7 @@ class _PersonalCounter extends ConsumerWidget {
         (ref.watch(localeProvider) ?? Localizations.localeOf(context))
             .languageCode;
     final profile = ref.watch(userProfileProvider).valueOrNull;
-    final goal = profile?.dailyGoal ?? 1000;
+    final goal = profile?.dailyGoal ?? 1;
     final today = ref.watch(todayCountProvider);
     final progress = goal == 0 ? 0.0 : today / goal;
     final streak = ref.watch(currentStreakProvider);

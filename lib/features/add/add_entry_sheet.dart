@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../core/auth/auth_providers.dart';
 import '../../core/campaigns/campaign_providers.dart';
 import '../../core/jaap/jaap_providers.dart';
 import '../../core/jaap/mantras.dart';
@@ -64,14 +63,7 @@ class _AddEntrySheetState extends ConsumerState<_AddEntrySheet> {
       );
       final campaign = ref.read(activeCampaignProvider).valueOrNull;
       if (_alsoCampaign && campaign != null) {
-        final profile = ref.read(userProfileProvider).valueOrNull;
-        final user = ref.read(currentUserProvider);
-        final name = profile?.displayName.isNotEmpty == true
-            ? profile!.displayName
-            : (user?.email ?? 'Anonymous');
-        await ref
-            .read(campaignServiceProvider)
-            .contribute(count: count, displayName: name);
+        await ref.read(campaignServiceProvider).contribute(count: count);
       }
       if (!mounted) return;
       Navigator.of(context).pop();

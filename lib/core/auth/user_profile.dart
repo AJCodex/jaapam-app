@@ -7,7 +7,7 @@ class UserProfile {
     required this.locale,
     required this.createdAt,
     this.gotra = '',
-    this.dailyGoal = 1000,
+    this.dailyGoal = 1,
     this.isAdmin = false,
   });
 
@@ -31,7 +31,7 @@ class UserProfile {
       temple: (data['temple'] as String?) ?? '',
       locale: (data['locale'] as String?) ?? 'en',
       createdAt: _parseDate(data['createdAt']),
-      dailyGoal: (data['dailyGoal'] as num?)?.toInt() ?? 1000,
+      dailyGoal: (data['dailyGoal'] as num?)?.toInt() ?? 1,
       isAdmin: (data['isAdmin'] as bool?) ?? false,
     );
   }

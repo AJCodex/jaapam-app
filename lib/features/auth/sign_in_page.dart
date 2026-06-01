@@ -54,9 +54,13 @@ class _SignInPageState extends ConsumerState<SignInPage> {
     });
     try {
       final origin = Uri.base.origin;
+      // URL-encode the email so a value like "a+b@x.com" or one containing
+      // & / ? / # cannot inject extra query params or break the redirect.
+      final continueUrl =
+          '$origin/?emailSignIn=1&email=${Uri.encodeQueryComponent(email)}';
       await ref.read(authServiceProvider).sendEmailLink(
             email: email,
-            continueUrl: '$origin/?emailSignIn=1&email=$email',
+            continueUrl: continueUrl,
           );
       // Save email locally for completion step.
       // (Phase 1: simple in-memory; Phase 2: shared_preferences.)
