@@ -8,7 +8,6 @@ import '../../core/campaigns/campaign_providers.dart';
 import '../../core/format.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../home/widgets/jaap_ring.dart';
-import '../shared/confirm_add.dart';
 
 class CommunityTab extends ConsumerWidget {
   const CommunityTab({super.key});
@@ -171,15 +170,6 @@ class _ActiveCampaignView extends ConsumerWidget {
                           )),
                     ],
                   ),
-                ),
-                FilledButton.tonal(
-                  onPressed: () => confirmAndAddJaap(
-                    context,
-                    ref,
-                    count: 108,
-                    contributeToCampaign: true,
-                  ),
-                  child: Text(l.contributeNow),
                 ),
               ],
             ),

@@ -142,8 +142,9 @@ class _PersonalCounter extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: const [
             _QuickAddChip(amount: 1, contributeToCampaign: false),
+            _QuickAddChip(amount: 5, contributeToCampaign: false),
             _QuickAddChip(amount: 11, contributeToCampaign: false),
-            _QuickAddChip(amount: 27, contributeToCampaign: false),
+            _QuickAddChip(amount: 21, contributeToCampaign: false),
             _QuickAddChip(amount: 108, contributeToCampaign: false),
           ],
         ),
@@ -277,8 +278,9 @@ class _CommunityCounter extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: const [
             _QuickAddChip(amount: 1, contributeToCampaign: true),
+            _QuickAddChip(amount: 5, contributeToCampaign: true),
             _QuickAddChip(amount: 11, contributeToCampaign: true),
-            _QuickAddChip(amount: 27, contributeToCampaign: true),
+            _QuickAddChip(amount: 21, contributeToCampaign: true),
             _QuickAddChip(amount: 108, contributeToCampaign: true),
           ],
         ),
