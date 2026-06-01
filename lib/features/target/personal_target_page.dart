@@ -25,9 +25,12 @@ class PersonalTargetPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(title: Text(l.personalTarget)),
-      body: ListView(
-        padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
-        children: [
+      body: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 520),
+          child: ListView(
+            padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
+            children: [
           // Monthly target card
           Card(
             child: Padding(
@@ -164,6 +167,8 @@ class PersonalTargetPage extends ConsumerWidget {
             ),
           ),
         ],
+          ),
+        ),
       ),
     );
   }

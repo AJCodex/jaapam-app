@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../core/auth/auth_providers.dart';
+import '../../core/campaigns/campaign_providers.dart';
 import '../../core/jaap/jaap_providers.dart';
 import '../../core/jaap/mantras.dart';
 import '../../l10n/generated/app_localizations.dart';
@@ -31,6 +33,7 @@ class _AddEntrySheetState extends ConsumerState<_AddEntrySheet> {
   DateTime _date = DateTime.now();
   final _obsCtrl = TextEditingController();
   bool _busy = false;
+  bool _alsoCampaign = false;
 
   @override
   void dispose() {
@@ -51,17 +54,33 @@ class _AddEntrySheetState extends ConsumerState<_AddEntrySheet> {
   Future<void> _submit() async {
     setState(() => _busy = true);
     try {
+      final count = _rounds * 108;
       final svc = ref.read(jaapServiceProvider);
       await svc.addSession(
-        count: _rounds * 108,
+        count: count,
         mantra: _mantra,
         date: _date,
         observation: _obsCtrl.text.trim().isEmpty ? null : _obsCtrl.text.trim(),
       );
+      final campaign = ref.read(activeCampaignProvider).valueOrNull;
+      if (_alsoCampaign && campaign != null) {
+        final profile = ref.read(userProfileProvider).valueOrNull;
+        final user = ref.read(currentUserProvider);
+        final name = profile?.displayName.isNotEmpty == true
+            ? profile!.displayName
+            : (user?.email ?? 'Anonymous');
+        await ref
+            .read(campaignServiceProvider)
+            .contribute(count: count, displayName: name);
+      }
       if (!mounted) return;
       Navigator.of(context).pop();
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context).entryAdded)),
+        SnackBar(
+          content: Text(_alsoCampaign && campaign != null
+              ? AppLocalizations.of(context).contributedToCampaign
+              : AppLocalizations.of(context).entryAdded),
+        ),
       );
     } catch (e) {
       if (!mounted) return;
@@ -189,6 +208,15 @@ class _AddEntrySheetState extends ConsumerState<_AddEntrySheet> {
                 hintText: l.observationHint,
               ),
             ),
+            if (ref.watch(activeCampaignProvider).valueOrNull != null) ...[
+              const SizedBox(height: 12),
+              SwitchListTile(
+                contentPadding: EdgeInsets.zero,
+                title: Text(l.alsoContributeCampaign),
+                value: _alsoCampaign,
+                onChanged: (v) => setState(() => _alsoCampaign = v),
+              ),
+            ],
             const SizedBox(height: 20),
             FilledButton.icon(
               onPressed: _busy ? null : _submit,

@@ -105,13 +105,41 @@ class AppLocalizationsEn extends AppLocalizations {
   String get navProfile => 'Profile';
 
   @override
-  String get namaste => 'Namaste';
+  String get namaste => 'Jai-Jinendra';
 
   @override
   String get today => 'Today';
 
   @override
   String get goal => 'Goal';
+
+  @override
+  String get personal => 'Personal';
+
+  @override
+  String get community => 'Community';
+
+  @override
+  String get confirmAddTitle => 'Add to today\'s count?';
+
+  @override
+  String confirmAddBody(int n) {
+    return 'This will add $n jaap to your personal count for today. Continue?';
+  }
+
+  @override
+  String confirmAddCampaignBody(int n) {
+    return 'This will add $n jaap to your personal count AND contribute to the active community campaign. Continue?';
+  }
+
+  @override
+  String get confirm => 'Yes, add';
+
+  @override
+  String get alsoContributeCampaign => 'Also contribute to active campaign';
+
+  @override
+  String get contributedToCampaign => 'Added & contributed to campaign.';
 
   @override
   String ofGoal(String goal) {
@@ -347,9 +375,81 @@ class AppLocalizationsEn extends AppLocalizations {
   String get communityTitle => 'Community Campaign';
 
   @override
-  String get communityComingSoon => 'Community campaigns arrive in Phase 6.';
+  String get noActiveCampaign => 'No active campaign';
 
   @override
-  String get communityComingSoonBody =>
-      'Soon you\'ll join a temple-wide goal with a live activity feed.';
+  String get noActiveCampaignBody =>
+      'Start a temple-wide goal so devotees can chant together.';
+
+  @override
+  String get startCampaign => 'Start a campaign';
+
+  @override
+  String get createCampaign => 'Create campaign';
+
+  @override
+  String get campaignTitleLabel => 'Campaign title';
+
+  @override
+  String get campaignTitleHint => 'e.g. Paryushan 2026 – 1 Million Jaap';
+
+  @override
+  String get campaignSubtitleLabel => 'Subtitle (optional)';
+
+  @override
+  String get campaignGoalLabel => 'Goal (total jaaps)';
+
+  @override
+  String devoteesParticipating(int n) {
+    return '$n devotees participating';
+  }
+
+  @override
+  String ofGoalShort(String goal) {
+    return 'of $goal goal';
+  }
+
+  @override
+  String get contributeNow => 'Contribute now';
+
+  @override
+  String get liveActivity => 'Live activity';
+
+  @override
+  String get noActivityYet => 'No activity yet. Be the first to chant.';
+
+  @override
+  String justAddedJaap(String name, int n) {
+    return '$name just added $n jaap';
+  }
+
+  @override
+  String get myContribution => 'My contribution';
+
+  @override
+  String get topContributors => 'Top contributors';
+
+  @override
+  String get endCampaign => 'End campaign';
+
+  @override
+  String get endCampaignBody =>
+      'This will close the active campaign. Continue?';
+
+  @override
+  String get welcomeTitle => 'Count Your Blessings,\nConnect with Community';
+
+  @override
+  String get welcomeSubtitle =>
+      'A sacred space to track your jaap and unite with your temple.';
+
+  @override
+  String get getStarted => 'Get started';
+
+  @override
+  String get alreadyHaveAccount => 'I already have an account';
+
+  @override
+  String get termsNote =>
+      'By continuing you agree to our Terms & Privacy Policy.';
 }

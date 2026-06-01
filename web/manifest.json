@@ -1,14 +1,20 @@
 {
-    "name": "jaapam",
-    "short_name": "jaapam",
+    "name": "Jaapam – Jain Jaap Tracker",
+    "short_name": "Jaapam",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "Jain temple community jaap tracking",
+    "background_color": "#FAF6EF",
+    "theme_color": "#E68C3A",
+    "description": "Count every jaap. Share every blessing.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
+        {
+            "src": "favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        },
         {
             "src": "icons/Icon-192.png",
             "sizes": "192x192",

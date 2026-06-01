@@ -287,7 +287,7 @@ abstract class AppLocalizations {
   /// No description provided for @namaste.
   ///
   /// In en, this message translates to:
-  /// **'Namaste'**
+  /// **'Jai-Jinendra'**
   String get namaste;
 
   /// No description provided for @today.
@@ -301,6 +301,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Goal'**
   String get goal;
+
+  /// No description provided for @personal.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal'**
+  String get personal;
+
+  /// No description provided for @community.
+  ///
+  /// In en, this message translates to:
+  /// **'Community'**
+  String get community;
+
+  /// No description provided for @confirmAddTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to today\'s count?'**
+  String get confirmAddTitle;
+
+  /// No description provided for @confirmAddBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This will add {n} jaap to your personal count for today. Continue?'**
+  String confirmAddBody(int n);
+
+  /// No description provided for @confirmAddCampaignBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This will add {n} jaap to your personal count AND contribute to the active community campaign. Continue?'**
+  String confirmAddCampaignBody(int n);
+
+  /// No description provided for @confirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes, add'**
+  String get confirm;
+
+  /// No description provided for @alsoContributeCampaign.
+  ///
+  /// In en, this message translates to:
+  /// **'Also contribute to active campaign'**
+  String get alsoContributeCampaign;
+
+  /// No description provided for @contributedToCampaign.
+  ///
+  /// In en, this message translates to:
+  /// **'Added & contributed to campaign.'**
+  String get contributedToCampaign;
 
   /// No description provided for @ofGoal.
   ///
@@ -734,17 +782,143 @@ abstract class AppLocalizations {
   /// **'Community Campaign'**
   String get communityTitle;
 
-  /// No description provided for @communityComingSoon.
+  /// No description provided for @noActiveCampaign.
   ///
   /// In en, this message translates to:
-  /// **'Community campaigns arrive in Phase 6.'**
-  String get communityComingSoon;
+  /// **'No active campaign'**
+  String get noActiveCampaign;
 
-  /// No description provided for @communityComingSoonBody.
+  /// No description provided for @noActiveCampaignBody.
   ///
   /// In en, this message translates to:
-  /// **'Soon you\'ll join a temple-wide goal with a live activity feed.'**
-  String get communityComingSoonBody;
+  /// **'Start a temple-wide goal so devotees can chant together.'**
+  String get noActiveCampaignBody;
+
+  /// No description provided for @startCampaign.
+  ///
+  /// In en, this message translates to:
+  /// **'Start a campaign'**
+  String get startCampaign;
+
+  /// No description provided for @createCampaign.
+  ///
+  /// In en, this message translates to:
+  /// **'Create campaign'**
+  String get createCampaign;
+
+  /// No description provided for @campaignTitleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Campaign title'**
+  String get campaignTitleLabel;
+
+  /// No description provided for @campaignTitleHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Paryushan 2026 – 1 Million Jaap'**
+  String get campaignTitleHint;
+
+  /// No description provided for @campaignSubtitleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Subtitle (optional)'**
+  String get campaignSubtitleLabel;
+
+  /// No description provided for @campaignGoalLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Goal (total jaaps)'**
+  String get campaignGoalLabel;
+
+  /// No description provided for @devoteesParticipating.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} devotees participating'**
+  String devoteesParticipating(int n);
+
+  /// No description provided for @ofGoalShort.
+  ///
+  /// In en, this message translates to:
+  /// **'of {goal} goal'**
+  String ofGoalShort(String goal);
+
+  /// No description provided for @contributeNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Contribute now'**
+  String get contributeNow;
+
+  /// No description provided for @liveActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'Live activity'**
+  String get liveActivity;
+
+  /// No description provided for @noActivityYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No activity yet. Be the first to chant.'**
+  String get noActivityYet;
+
+  /// No description provided for @justAddedJaap.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} just added {n} jaap'**
+  String justAddedJaap(String name, int n);
+
+  /// No description provided for @myContribution.
+  ///
+  /// In en, this message translates to:
+  /// **'My contribution'**
+  String get myContribution;
+
+  /// No description provided for @topContributors.
+  ///
+  /// In en, this message translates to:
+  /// **'Top contributors'**
+  String get topContributors;
+
+  /// No description provided for @endCampaign.
+  ///
+  /// In en, this message translates to:
+  /// **'End campaign'**
+  String get endCampaign;
+
+  /// No description provided for @endCampaignBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This will close the active campaign. Continue?'**
+  String get endCampaignBody;
+
+  /// No description provided for @welcomeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Count Your Blessings,\nConnect with Community'**
+  String get welcomeTitle;
+
+  /// No description provided for @welcomeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A sacred space to track your jaap and unite with your temple.'**
+  String get welcomeSubtitle;
+
+  /// No description provided for @getStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Get started'**
+  String get getStarted;
+
+  /// No description provided for @alreadyHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'I already have an account'**
+  String get alreadyHaveAccount;
+
+  /// No description provided for @termsNote.
+  ///
+  /// In en, this message translates to:
+  /// **'By continuing you agree to our Terms & Privacy Policy.'**
+  String get termsNote;
 }
 
 class _AppLocalizationsDelegate

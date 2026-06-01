@@ -16,7 +16,6 @@ class ProfileSetupPage extends ConsumerStatefulWidget {
 class _ProfileSetupPageState extends ConsumerState<ProfileSetupPage> {
   final _formKey = GlobalKey<FormState>();
   late final TextEditingController _name;
-  late final TextEditingController _gotra;
   String _temple = 'gyanodaya';
   bool _busy = false;
   String? _error;
@@ -26,13 +25,11 @@ class _ProfileSetupPageState extends ConsumerState<ProfileSetupPage> {
     super.initState();
     final user = ref.read(currentUserProvider);
     _name = TextEditingController(text: user?.displayName ?? '');
-    _gotra = TextEditingController();
   }
 
   @override
   void dispose() {
     _name.dispose();
-    _gotra.dispose();
     super.dispose();
   }
 
@@ -49,7 +46,6 @@ class _ProfileSetupPageState extends ConsumerState<ProfileSetupPage> {
       final profile = UserProfile(
         uid: user.uid,
         displayName: _name.text.trim(),
-        gotra: _gotra.text.trim(),
         temple: _temple,
         locale: Localizations.localeOf(context).languageCode,
         createdAt: DateTime.now().toUtc(),
@@ -108,18 +104,6 @@ class _ProfileSetupPageState extends ConsumerState<ProfileSetupPage> {
                     enabled: !_busy,
                     textCapitalization: TextCapitalization.words,
                     decoration: InputDecoration(labelText: l.fullName),
-                    validator: (v) =>
-                        (v == null || v.trim().isEmpty) ? l.fieldRequired : null,
-                  ),
-                  const SizedBox(height: 16),
-                  TextFormField(
-                    controller: _gotra,
-                    enabled: !_busy,
-                    textCapitalization: TextCapitalization.words,
-                    decoration: InputDecoration(
-                      labelText: l.gotra,
-                      helperText: l.gotraHelper,
-                    ),
                     validator: (v) =>
                         (v == null || v.trim().isEmpty) ? l.fieldRequired : null,
                   ),

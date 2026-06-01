@@ -3,10 +3,10 @@ class UserProfile {
   const UserProfile({
     required this.uid,
     required this.displayName,
-    required this.gotra,
     required this.temple,
     required this.locale,
     required this.createdAt,
+    this.gotra = '',
     this.dailyGoal = 1000,
   });
 
@@ -57,9 +57,7 @@ class UserProfile {
       );
 
   bool get isComplete =>
-      displayName.trim().isNotEmpty &&
-      gotra.trim().isNotEmpty &&
-      temple.trim().isNotEmpty;
+      displayName.trim().isNotEmpty && temple.trim().isNotEmpty;
 
   static DateTime _parseDate(dynamic v) {
     if (v is String) {

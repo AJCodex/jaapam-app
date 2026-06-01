@@ -8,6 +8,7 @@ import '../features/auth/sign_in_page.dart';
 import '../features/onboarding/profile_setup_page.dart';
 import '../features/shell/root_shell.dart';
 import '../features/target/personal_target_page.dart';
+import '../features/welcome/welcome_page.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../theme/app_theme.dart';
 import 'locale_controller.dart';
@@ -22,10 +23,12 @@ final _routerProvider = Provider<GoRouter>((ref) {
       final user = auth.valueOrNull;
       final loc = state.matchedLocation;
       final atSignIn = loc == '/sign-in';
+      final atWelcome = loc == '/welcome';
       final atOnboarding = loc == '/onboarding';
 
       if (user == null) {
-        return atSignIn ? null : '/sign-in';
+        if (atWelcome || atSignIn) return null;
+        return '/welcome';
       }
 
       final profileAsync = ref.read(userProfileProvider);
@@ -37,12 +40,13 @@ final _routerProvider = Provider<GoRouter>((ref) {
         return atOnboarding ? null : '/onboarding';
       }
 
-      if (atSignIn || atOnboarding) return '/';
+      if (atWelcome || atSignIn || atOnboarding) return '/';
       return null;
     },
     routes: [
       GoRoute(path: '/', builder: (_, _) => const RootShell()),
       GoRoute(path: '/target', builder: (_, _) => const PersonalTargetPage()),
+      GoRoute(path: '/welcome', builder: (_, _) => const WelcomePage()),
       GoRoute(path: '/sign-in', builder: (_, _) => const SignInPage()),
       GoRoute(
         path: '/onboarding',
