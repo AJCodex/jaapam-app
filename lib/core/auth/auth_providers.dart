@@ -37,6 +37,12 @@ final userProfileProvider = StreamProvider<UserProfile?>((ref) {
   });
 });
 
+/// True only when the current signed-in user's profile has `isAdmin: true`.
+/// Server-side rules enforce the same check; this is purely for UI gating.
+final isAdminProvider = Provider<bool>((ref) {
+  return ref.watch(userProfileProvider).valueOrNull?.isAdmin ?? false;
+});
+
 /// Auth service for sign-in / sign-out / profile writes.
 final authServiceProvider = Provider<AuthService>(
   (ref) => AuthService(

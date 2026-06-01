@@ -794,6 +794,18 @@ abstract class AppLocalizations {
   /// **'Start a temple-wide goal so devotees can chant together.'**
   String get noActiveCampaignBody;
 
+  /// No description provided for @noActiveCampaignForDevotee.
+  ///
+  /// In en, this message translates to:
+  /// **'Your temple admin hasn\'t started a campaign yet. Please check back soon.'**
+  String get noActiveCampaignForDevotee;
+
+  /// No description provided for @adminOnlyAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Only the temple admin can start a campaign.'**
+  String get adminOnlyAction;
+
   /// No description provided for @startCampaign.
   ///
   /// In en, this message translates to:

@@ -18,6 +18,7 @@ class CommunityTab extends ConsumerWidget {
     final l = AppLocalizations.of(context);
     final theme = Theme.of(context);
     final campaign = ref.watch(activeCampaignProvider).valueOrNull;
+    final isAdmin = ref.watch(isAdminProvider);
 
     if (campaign == null) {
       return Center(
@@ -33,17 +34,21 @@ class CommunityTab extends ConsumerWidget {
                   style: theme.textTheme.headlineSmall,
                   textAlign: TextAlign.center),
               const SizedBox(height: 8),
-              Text(l.noActiveCampaignBody,
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: theme.colorScheme.onSurfaceVariant,
-                  ),
-                  textAlign: TextAlign.center),
-              const SizedBox(height: 24),
-              FilledButton.icon(
-                icon: const Icon(Icons.add),
-                label: Text(l.startCampaign),
-                onPressed: () => _showCreateSheet(context, ref),
+              Text(
+                isAdmin ? l.noActiveCampaignBody : l.noActiveCampaignForDevotee,
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: theme.colorScheme.onSurfaceVariant,
+                ),
+                textAlign: TextAlign.center,
               ),
+              if (isAdmin) ...[
+                const SizedBox(height: 24),
+                FilledButton.icon(
+                  icon: const Icon(Icons.add),
+                  label: Text(l.startCampaign),
+                  onPressed: () => _showCreateSheet(context, ref),
+                ),
+              ],
             ],
           ),
         ),

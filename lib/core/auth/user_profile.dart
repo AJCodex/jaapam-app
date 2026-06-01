@@ -8,6 +8,7 @@ class UserProfile {
     required this.createdAt,
     this.gotra = '',
     this.dailyGoal = 1000,
+    this.isAdmin = false,
   });
 
   final String uid;
@@ -18,6 +19,10 @@ class UserProfile {
   final DateTime createdAt;
   final int dailyGoal;
 
+  /// Server-controlled flag. Set manually in Firestore console:
+  /// `users/{uid}.isAdmin = true`. Never written from the client (rules block it).
+  final bool isAdmin;
+
   factory UserProfile.fromMap(String uid, Map<String, dynamic> data) {
     return UserProfile(
       uid: uid,
@@ -27,6 +32,7 @@ class UserProfile {
       locale: (data['locale'] as String?) ?? 'en',
       createdAt: _parseDate(data['createdAt']),
       dailyGoal: (data['dailyGoal'] as num?)?.toInt() ?? 1000,
+      isAdmin: (data['isAdmin'] as bool?) ?? false,
     );
   }
 
@@ -37,6 +43,7 @@ class UserProfile {
         'locale': locale,
         'createdAt': createdAt.toUtc().toIso8601String(),
         'dailyGoal': dailyGoal,
+        // NOTE: isAdmin intentionally omitted — client must never set it.
       };
 
   UserProfile copyWith({
@@ -54,6 +61,7 @@ class UserProfile {
         locale: locale ?? this.locale,
         createdAt: createdAt,
         dailyGoal: dailyGoal ?? this.dailyGoal,
+        isAdmin: isAdmin,
       );
 
   bool get isComplete =>

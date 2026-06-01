@@ -160,6 +160,8 @@
   "communityTitle": "Community Campaign",
   "noActiveCampaign": "No active campaign",
   "noActiveCampaignBody": "Start a temple-wide goal so devotees can chant together.",
+  "noActiveCampaignForDevotee": "Your temple admin hasn't started a campaign yet. Please check back soon.",
+  "adminOnlyAction": "Only the temple admin can start a campaign.",
   "startCampaign": "Start a campaign",
   "createCampaign": "Create campaign",
   "campaignTitleLabel": "Campaign title",

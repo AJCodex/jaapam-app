@@ -382,6 +382,14 @@ class AppLocalizationsHi extends AppLocalizations {
       'मंदिर-व्यापी लक्ष्य प्रारंभ करें ताकि भक्तजन साथ मिलकर जाप कर सकें।';
 
   @override
+  String get noActiveCampaignForDevotee =>
+      'आपके मंदिर के व्यवस्थापक ने अभी कोई अभियान प्रारंभ नहीं किया है। कृपया कुछ समय बाद देखें।';
+
+  @override
+  String get adminOnlyAction =>
+      'केवल मंदिर का व्यवस्थापक ही अभियान प्रारंभ कर सकता है।';
+
+  @override
   String get startCampaign => 'अभियान प्रारंभ करें';
 
   @override

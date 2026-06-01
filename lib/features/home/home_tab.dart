@@ -193,6 +193,7 @@ class _CommunityCounter extends ConsumerWidget {
     final total = ref.watch(campaignTotalProvider);
     final mine = ref.watch(myContributionProvider);
     final participants = ref.watch(campaignParticipantsProvider);
+    final isAdmin = ref.watch(isAdminProvider);
 
     if (campaign == null) {
       return Padding(
@@ -207,20 +208,12 @@ class _CommunityCounter extends ConsumerWidget {
                 style: theme.textTheme.headlineSmall,
                 textAlign: TextAlign.center),
             const SizedBox(height: 8),
-            Text(l.noActiveCampaignBody,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant,
-                ),
-                textAlign: TextAlign.center),
-            const SizedBox(height: 16),
-            FilledButton.tonalIcon(
-              icon: const Icon(Icons.arrow_forward),
-              label: Text(l.startCampaign),
-              onPressed: () {
-                DefaultTabController.maybeOf(context);
-                // RootShell switch handled via bottom nav; user can tap
-                // Community tab in nav to access creation flow.
-              },
+            Text(
+              isAdmin ? l.noActiveCampaignBody : l.noActiveCampaignForDevotee,
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: theme.colorScheme.onSurfaceVariant,
+              ),
+              textAlign: TextAlign.center,
             ),
           ],
         ),

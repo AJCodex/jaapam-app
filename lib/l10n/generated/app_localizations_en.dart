@@ -382,6 +382,13 @@ class AppLocalizationsEn extends AppLocalizations {
       'Start a temple-wide goal so devotees can chant together.';
 
   @override
+  String get noActiveCampaignForDevotee =>
+      'Your temple admin hasn\'t started a campaign yet. Please check back soon.';
+
+  @override
+  String get adminOnlyAction => 'Only the temple admin can start a campaign.';
+
+  @override
   String get startCampaign => 'Start a campaign';
 
   @override
