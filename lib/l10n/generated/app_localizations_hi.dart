@@ -459,4 +459,60 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get termsNote =>
       'जारी रखने पर आप हमारी सेवा शर्तों और गोपनीयता नीति से सहमत होते हैं।';
+
+  @override
+  String get termsOfService => 'सेवा शर्तें';
+
+  @override
+  String get legalUpdated => 'अंतिम अद्यतन';
+
+  @override
+  String get privacyIntro =>
+      'जापम केवल वही जानकारी संग्रहीत करता है जो आप स्वयं प्रदान करते हैं, ताकि आपकी व्यक्तिगत जाप गणना और मंदिर के सामुदायिक अभियान में आपका योगदान दिखाया जा सके।';
+
+  @override
+  String get privacyDataCollected => 'हम क्या संग्रहीत करते हैं';
+
+  @override
+  String get privacyDataCollectedBody =>
+      'आपका साइन-इन ईमेल, आपका प्रदर्शित नाम, चुना गया मंदिर, आपके द्वारा दर्ज प्रत्येक जाप सत्र की संख्या और तिथि, तथा किसी भी सक्रिय सामुदायिक अभियान में आपका योगदान।';
+
+  @override
+  String get privacyDataNotCollected => 'हम क्या एकत्र नहीं करते';
+
+  @override
+  String get privacyDataNotCollectedBody =>
+      'स्थान, संपर्क, भुगतान जानकारी, या ऐप के बाहर कोई भी डेटा। हम आपका डेटा किसी तीसरे पक्ष को नहीं बेचते या साझा नहीं करते।';
+
+  @override
+  String get privacyAccess => 'आपके अधिकार';
+
+  @override
+  String get privacyAccessBody =>
+      'आप किसी भी समय साइन आउट कर सकते हैं। अपना खाता और सभी संबंधित डेटा हटाने के लिए कृपया मंदिर व्यवस्थापक से संपर्क करें।';
+
+  @override
+  String get termsIntro =>
+      'जापम मंदिर समुदाय को निःशुल्क प्रदान किया गया एक भक्ति ट्रैकिंग उपकरण है। इसका उपयोग करके आप निम्न शर्तों को स्वीकार करते हैं:';
+
+  @override
+  String get termsAcceptableUse => 'स्वीकार्य उपयोग';
+
+  @override
+  String get termsAcceptableUseBody =>
+      'ऐप का उपयोग केवल अपनी वास्तविक भक्ति साधना दर्ज करने के लिए करें। दूसरों का अनुकरण न करें, सामुदायिक गणना में हेरफेर का प्रयास न करें, और किसी भी अवैध उद्देश्य के लिए ऐप का उपयोग न करें।';
+
+  @override
+  String get termsAvailability => 'उपलब्धता';
+
+  @override
+  String get termsAvailabilityBody =>
+      'ऐप ‘जैसा है’ आधार पर प्रदान किया जाता है। हम इसे हमेशा उपलब्ध रखने का प्रयास करते हैं, परंतु निर्बाध सेवा की गारंटी नहीं दे सकते।';
+
+  @override
+  String get termsLiability => 'दायित्व';
+
+  @override
+  String get termsLiabilityBody =>
+      'मंदिर और ऐप अनुरक्षक ऐप के उपयोग से उत्पन्न किसी भी अप्रत्यक्ष हानि के लिए उत्तरदायी नहीं हैं।';
 }

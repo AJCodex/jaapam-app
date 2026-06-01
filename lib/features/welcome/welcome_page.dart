@@ -76,6 +76,24 @@ class WelcomePage extends StatelessWidget {
                       color: theme.colorScheme.onSurfaceVariant,
                     ),
                   ),
+                  const SizedBox(height: 8),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextButton(
+                        onPressed: () => context.push('/legal/privacy'),
+                        child: Text(l.privacyPolicy),
+                      ),
+                      Text('·',
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: theme.colorScheme.onSurfaceVariant,
+                          )),
+                      TextButton(
+                        onPressed: () => context.push('/legal/terms'),
+                        child: Text(l.termsOfService),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),

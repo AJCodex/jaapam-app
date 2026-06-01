@@ -665,7 +665,7 @@ abstract class AppLocalizations {
   /// No description provided for @privacyPolicy.
   ///
   /// In en, this message translates to:
-  /// **'Privacy policy'**
+  /// **'Privacy Policy'**
   String get privacyPolicy;
 
   /// No description provided for @dailyGoalLabel.
@@ -931,6 +931,102 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'By continuing you agree to our Terms & Privacy Policy.'**
   String get termsNote;
+
+  /// No description provided for @termsOfService.
+  ///
+  /// In en, this message translates to:
+  /// **'Terms of Service'**
+  String get termsOfService;
+
+  /// No description provided for @legalUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Last updated'**
+  String get legalUpdated;
+
+  /// No description provided for @privacyIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Jaapam stores only the information you provide so we can show your personal devotion count and your contribution to your temple\'s community campaigns.'**
+  String get privacyIntro;
+
+  /// No description provided for @privacyDataCollected.
+  ///
+  /// In en, this message translates to:
+  /// **'Data we store'**
+  String get privacyDataCollected;
+
+  /// No description provided for @privacyDataCollectedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Your sign-in email, your chosen display name, your selected temple, the count and date of every jaap session you record, and your contribution to any active community campaign.'**
+  String get privacyDataCollectedBody;
+
+  /// No description provided for @privacyDataNotCollected.
+  ///
+  /// In en, this message translates to:
+  /// **'What we do NOT collect'**
+  String get privacyDataNotCollected;
+
+  /// No description provided for @privacyDataNotCollectedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Location, contacts, payment information, or any data outside the app. We do not sell or share your data with third parties.'**
+  String get privacyDataNotCollectedBody;
+
+  /// No description provided for @privacyAccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Your rights'**
+  String get privacyAccess;
+
+  /// No description provided for @privacyAccessBody.
+  ///
+  /// In en, this message translates to:
+  /// **'You may sign out at any time. To delete your account and all associated data, contact the temple administrator who will erase your records from Firestore.'**
+  String get privacyAccessBody;
+
+  /// No description provided for @termsIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Jaapam is a devotional tracking tool offered free of charge to the temple community. By using it you accept the following:'**
+  String get termsIntro;
+
+  /// No description provided for @termsAcceptableUse.
+  ///
+  /// In en, this message translates to:
+  /// **'Acceptable use'**
+  String get termsAcceptableUse;
+
+  /// No description provided for @termsAcceptableUseBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the app only to record your own genuine devotional practice. Do not impersonate others, do not attempt to manipulate community counts, and do not use the app for any unlawful purpose.'**
+  String get termsAcceptableUseBody;
+
+  /// No description provided for @termsAvailability.
+  ///
+  /// In en, this message translates to:
+  /// **'Availability'**
+  String get termsAvailability;
+
+  /// No description provided for @termsAvailabilityBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The app is provided as-is. While we work to keep it always available, we cannot guarantee uninterrupted service.'**
+  String get termsAvailabilityBody;
+
+  /// No description provided for @termsLiability.
+  ///
+  /// In en, this message translates to:
+  /// **'Liability'**
+  String get termsLiability;
+
+  /// No description provided for @termsLiabilityBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The temple and the app maintainers are not liable for any indirect loss arising from use of the app.'**
+  String get termsLiabilityBody;
 }
 
 class _AppLocalizationsDelegate

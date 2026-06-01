@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../auth/auth_providers.dart';
+import '../observability/analytics.dart';
 import 'jaap_session.dart';
 import 'mantras.dart';
 
@@ -166,6 +169,7 @@ class JaapService {
       observation: observation,
     );
     await _sessions.add(session.toMap());
+    unawaited(analytics.jaapAdded(count: count, mantra: mantra.name));
   }
 
   Future<void> deleteSession(String id) async {
@@ -187,5 +191,6 @@ class JaapService {
         .collection('personal_goals')
         .doc(key)
         .set({'target': target}, SetOptions(merge: true));
+    unawaited(analytics.targetSet(target));
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/auth/auth_providers.dart';
+import '../../core/observability/analytics.dart';
 import '../../l10n/generated/app_localizations.dart';
 
 class SignInPage extends ConsumerStatefulWidget {
@@ -31,6 +32,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
     });
     try {
       await ref.read(authServiceProvider).signInWithGoogleWebPopup();
+      await analytics.signIn('google');
     } catch (e) {
       setState(() => _error = e.toString());
     } finally {
@@ -59,6 +61,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
       // Save email locally for completion step.
       // (Phase 1: simple in-memory; Phase 2: shared_preferences.)
       _pendingEmail = email;
+      await analytics.signIn('email_link_sent');
       setState(() => _info = l.emailLinkSent);
     } catch (e) {
       setState(() => _error = e.toString());

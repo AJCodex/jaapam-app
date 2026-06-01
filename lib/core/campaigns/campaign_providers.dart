@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../auth/auth_providers.dart';
+import '../observability/analytics.dart';
 import 'campaign.dart';
 
 /// Fixed doc id for the single active campaign (v1).
@@ -120,6 +123,7 @@ class CampaignService {
       'createdBy': _user.uid as String,
       'createdAt': FieldValue.serverTimestamp(),
     });
+    unawaited(analytics.campaignStarted(goal: goal));
   }
 
   Future<void> endCampaign() async {
@@ -154,5 +158,6 @@ class CampaignService {
       },
     );
     await batch.commit();
+    unawaited(analytics.campaignContributed(count));
   }
 }

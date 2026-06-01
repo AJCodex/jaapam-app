@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../core/auth/auth_providers.dart';
 import '../features/auth/sign_in_page.dart';
+import '../features/legal/legal_pages.dart';
 import '../features/onboarding/profile_setup_page.dart';
 import '../features/shell/root_shell.dart';
 import '../features/target/personal_target_page.dart';
@@ -25,11 +26,14 @@ final _routerProvider = Provider<GoRouter>((ref) {
       final atSignIn = loc == '/sign-in';
       final atWelcome = loc == '/welcome';
       final atOnboarding = loc == '/onboarding';
+      final atLegal = loc.startsWith('/legal/');
 
       if (user == null) {
-        if (atWelcome || atSignIn) return null;
+        if (atWelcome || atSignIn || atLegal) return null;
         return '/welcome';
       }
+
+      if (atLegal) return null;
 
       final profileAsync = ref.read(userProfileProvider);
       if (profileAsync.isLoading) return null;
@@ -48,6 +52,8 @@ final _routerProvider = Provider<GoRouter>((ref) {
       GoRoute(path: '/target', builder: (_, _) => const PersonalTargetPage()),
       GoRoute(path: '/welcome', builder: (_, _) => const WelcomePage()),
       GoRoute(path: '/sign-in', builder: (_, _) => const SignInPage()),
+      GoRoute(path: '/legal/privacy', builder: (_, _) => const PrivacyPage()),
+      GoRoute(path: '/legal/terms', builder: (_, _) => const TermsPage()),
       GoRoute(
         path: '/onboarding',
         builder: (_, _) => const ProfileSetupPage(),

@@ -214,7 +214,14 @@ class PersonalTargetPage extends ConsumerWidget {
       ),
     );
     if (result != null) {
-      await ref.read(jaapServiceProvider).setMonthlyTarget(result);
+      try {
+        await ref.read(jaapServiceProvider).setMonthlyTarget(result);
+      } catch (e) {
+        if (!context.mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.toString())),
+        );
+      }
     }
   }
 }

@@ -313,7 +313,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get privacySecurity => 'Privacy & Security';
 
   @override
-  String get privacyPolicy => 'Privacy policy';
+  String get privacyPolicy => 'Privacy Policy';
 
   @override
   String get dailyGoalLabel => 'Daily goal';
@@ -459,4 +459,60 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get termsNote =>
       'By continuing you agree to our Terms & Privacy Policy.';
+
+  @override
+  String get termsOfService => 'Terms of Service';
+
+  @override
+  String get legalUpdated => 'Last updated';
+
+  @override
+  String get privacyIntro =>
+      'Jaapam stores only the information you provide so we can show your personal devotion count and your contribution to your temple\'s community campaigns.';
+
+  @override
+  String get privacyDataCollected => 'Data we store';
+
+  @override
+  String get privacyDataCollectedBody =>
+      'Your sign-in email, your chosen display name, your selected temple, the count and date of every jaap session you record, and your contribution to any active community campaign.';
+
+  @override
+  String get privacyDataNotCollected => 'What we do NOT collect';
+
+  @override
+  String get privacyDataNotCollectedBody =>
+      'Location, contacts, payment information, or any data outside the app. We do not sell or share your data with third parties.';
+
+  @override
+  String get privacyAccess => 'Your rights';
+
+  @override
+  String get privacyAccessBody =>
+      'You may sign out at any time. To delete your account and all associated data, contact the temple administrator who will erase your records from Firestore.';
+
+  @override
+  String get termsIntro =>
+      'Jaapam is a devotional tracking tool offered free of charge to the temple community. By using it you accept the following:';
+
+  @override
+  String get termsAcceptableUse => 'Acceptable use';
+
+  @override
+  String get termsAcceptableUseBody =>
+      'Use the app only to record your own genuine devotional practice. Do not impersonate others, do not attempt to manipulate community counts, and do not use the app for any unlawful purpose.';
+
+  @override
+  String get termsAvailability => 'Availability';
+
+  @override
+  String get termsAvailabilityBody =>
+      'The app is provided as-is. While we work to keep it always available, we cannot guarantee uninterrupted service.';
+
+  @override
+  String get termsLiability => 'Liability';
+
+  @override
+  String get termsLiabilityBody =>
+      'The temple and the app maintainers are not liable for any indirect loss arising from use of the app.';
 }

@@ -186,5 +186,23 @@
   "welcomeSubtitle": "A sacred space to track your jaap and unite with your temple.",
   "getStarted": "Get started",
   "alreadyHaveAccount": "I already have an account",
-  "termsNote": "By continuing you agree to our Terms & Privacy Policy."
+  "termsNote": "By continuing you agree to our Terms & Privacy Policy.",
+
+  "privacyPolicy": "Privacy Policy",
+  "termsOfService": "Terms of Service",
+  "legalUpdated": "Last updated",
+  "privacyIntro": "Jaapam stores only the information you provide so we can show your personal devotion count and your contribution to your temple's community campaigns.",
+  "privacyDataCollected": "Data we store",
+  "privacyDataCollectedBody": "Your sign-in email, your chosen display name, your selected temple, the count and date of every jaap session you record, and your contribution to any active community campaign.",
+  "privacyDataNotCollected": "What we do NOT collect",
+  "privacyDataNotCollectedBody": "Location, contacts, payment information, or any data outside the app. We do not sell or share your data with third parties.",
+  "privacyAccess": "Your rights",
+  "privacyAccessBody": "You may sign out at any time. To delete your account and all associated data, contact the temple administrator who will erase your records from Firestore.",
+  "termsIntro": "Jaapam is a devotional tracking tool offered free of charge to the temple community. By using it you accept the following:",
+  "termsAcceptableUse": "Acceptable use",
+  "termsAcceptableUseBody": "Use the app only to record your own genuine devotional practice. Do not impersonate others, do not attempt to manipulate community counts, and do not use the app for any unlawful purpose.",
+  "termsAvailability": "Availability",
+  "termsAvailabilityBody": "The app is provided as-is. While we work to keep it always available, we cannot guarantee uninterrupted service.",
+  "termsLiability": "Liability",
+  "termsLiabilityBody": "The temple and the app maintainers are not liable for any indirect loss arising from use of the app."
 }
